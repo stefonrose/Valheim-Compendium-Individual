@@ -194,3 +194,59 @@
       
       JsonObject jsonResponse = new JsonParser().parse(response.toString()).getAsJsonObject();
   ```
+  # Milestones
+  
+   ## Milestone 1
+   
+   Set up Parse server to store data and get data
+   
+
+
+### 1. Start with gathering necessary Valheim data.
+
+This includes information about: creatures, biomes, items, and bosses.
+
+The information can be found in:
+
+- [Official Wiki](https://valheim.fandom.com/wiki/Valheim_Wiki)
+- Playing the game
+- Looking through game files.
+
+
+
+- [x] **Creatures**
+
+
+- Names
+- Item drops and item drop rates
+- locations
+- weaknesses
+
+- [x] **Biomes**
+
+- Names
+- Difficulty
+- Creatures found
+- resources
+
+- [ ] (Optional) Recommended gear to explore with.
+
+- [x] **Items**
+
+- Names
+- Sources
+- (optional) rarity
+- Biomes located in
+
+- [x] **Bosses**
+
+- Names
+- difficulty
+- Locations
+- Summoning requirements
+
+- [ ]  (Optional) Recommended gear to fight with.
+
+### 2. Setup parse server
+- [x] Set up parse server that will store the Valheim data and be able to GET the data from.
+
