@@ -172,10 +172,7 @@
               }
           });
       ```
-
-
-  #### Endpoints
-
+      
   - Valheim Subreddit: https://www.reddit.com/r/valheim/.json
 
   ```java=
