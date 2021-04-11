@@ -1,14 +1,14 @@
-package com.sfonrose.valheimcompendium;
+package com.theboys.valheimcompendium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class HomePageActivity extends AppCompatActivity {
+public class EntryPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_entry_page);
     }
 }

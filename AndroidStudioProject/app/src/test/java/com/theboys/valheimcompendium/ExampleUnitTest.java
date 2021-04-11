@@ -1,4 +1,4 @@
-package com.sfonrose.valheimcompendium;
+package com.theboys.valheimcompendium;
 
 import org.junit.Test;
 
