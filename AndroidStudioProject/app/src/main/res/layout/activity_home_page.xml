@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePageActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/home_titleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="150dp"
+        android:text="Valheim Compendium"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="43dp" />
+
+    <ImageView
+        android:id="@+id/homeIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_titleTV"
+        android:layout_alignStart="@+id/home_titleTV"
+        android:layout_alignEnd="@+id/home_titleTV"
+        android:layout_marginStart="-50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="-50dp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/home_descriptionTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homeIV"
+        android:layout_alignStart="@+id/homeIV"
+        android:layout_alignEnd="@+id/homeIV"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="0dp"
+        android:text="This is a description of the game Valheim" />
+
+    <GridView
+        android:id="@+id/home_featuresGV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/home_descriptionTV"
+        android:layout_marginTop="75dp"
+        android:numColumns="2"
+        android:columnWidth="80dp"
+        android:listSelector="#3aa8c1"/><!--define green color for selected item-->/>
+
+</RelativeLayout>
