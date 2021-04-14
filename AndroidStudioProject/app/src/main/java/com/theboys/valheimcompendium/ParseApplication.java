@@ -19,6 +19,8 @@ public class ParseApplication extends Application {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("LIQUFzehlyIaRXvmD19OzPK2Cup4thQSqTD6dAbq") // should correspond to Application Id env variable
                 .clientKey("7YI9dPfM0zSEFH9lWDXUFXYXAyCUn3cIIL3h8pau")  // should correspond to Client key env variable
-                .server("https://parseapi.back4app.com").build());
+                .server("https://parseapi.back4app.com")
+                .build()
+        );
     }
 }

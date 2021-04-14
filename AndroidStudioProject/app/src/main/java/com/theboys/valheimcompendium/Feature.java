@@ -7,20 +7,17 @@ import com.parse.ParseUser;
 
 @ParseClassName("Feature")
 public class Feature extends ParseObject {
-
-
-    String featureName;
-    int featureImage;
+//    String featureName;
+//    int featureImage;
 
     public static final String KEY_FEATURE_NAME = "name";
     public static final String KEY_FEATURE_IMAGE = "image";
 
-
-    public Feature(String featureName, int featureImage)
-    {
-        this.featureImage = featureImage;
-        this.featureName = featureName;
-    }
+//    public Feature(String featureName, int featureImage)
+//    {
+//        this.featureImage = featureImage;
+//        this.featureName = featureName;
+//    }
     public String getFeatureName() {
         return getString(KEY_FEATURE_NAME);
     }

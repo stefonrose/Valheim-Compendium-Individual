@@ -1,60 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#433B3B"
     tools:context=".HomePageActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="255dp"
+        tools:srcCompat="@drawable/home_banner" />
+
     <TextView
-        android:id="@+id/home_titleTV"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Valheim is a game about exploring a huge fantasy world inspired by Norse mythology and Viking culture. You start your adventure at the relatively peaceful center of Valheim. The further from the center you travel, the more challenging the world becomes. But you will also find more valuable materials that you can use to craft deadlier weapons and sturdier armor. You will also build your own Viking strongholds and outposts all over the world."
+        android:textColor="#EDEDED" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        tools:srcCompat="@drawable/biomes" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/imageView15"
+        tools:srcCompat="@drawable/creature_feat" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/textView9"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="14dp"
+        tools:srcCompat="@drawable/item_feat" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/textView10"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="15dp"
+        tools:srcCompat="@drawable/mechanic_feat" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView17"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="9dp"
+        android:text="Biomes"
+        android:textColor="#EDEDED" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView18"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="12dp"
+        android:text="Creatures"
+        android:textColor="#EDEDED" />
+
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="150dp"
-        android:text="Valheim Compendium"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="43dp" />
-
-    <ImageView
-        android:id="@+id/homeIV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/home_titleTV"
-        android:layout_alignStart="@+id/home_titleTV"
-        android:layout_alignEnd="@+id/home_titleTV"
-        android:layout_marginStart="-50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="-50dp"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="90dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginBottom="19dp"
+        android:text="Items"
+        android:textColor="#EDEDED" />
 
     <TextView
-        android:id="@+id/home_descriptionTV"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/homeIV"
-        android:layout_alignStart="@+id/homeIV"
-        android:layout_alignEnd="@+id/homeIV"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="0dp"
-        android:text="This is a description of the game Valheim" />
-
-    <GridView
-        android:id="@+id/home_featuresGV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/home_descriptionTV"
-        android:layout_marginTop="75dp"
-        android:numColumns="2"
-        android:columnWidth="80dp"
-        android:listSelector="#3aa8c1"/><!--define green color for selected item-->/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="17dp"
+        android:text="Mechanics"
+        android:textColor="#EDEDED" />
 
 </RelativeLayout>

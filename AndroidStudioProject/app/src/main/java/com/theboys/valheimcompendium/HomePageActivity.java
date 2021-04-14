@@ -1,10 +1,10 @@
 package com.theboys.valheimcompendium;
 
+import com.theboys.valheimcompendium.MyAdapter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Adapter;
 import android.widget.GridView;
 
 import com.parse.FindCallback;
@@ -29,12 +29,6 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
-        GridView gridview = (GridView) findViewById(R.id.home_featuresGV);
-
-        queryFeature();
-        adapter = new MyAdapter(this,R.layout.home_grid_view_items,featureList);
-        gridview.setAdapter(adapter);
     }
 
 
@@ -51,7 +45,7 @@ public class HomePageActivity extends AppCompatActivity {
                     Log.i(TAG, "Feature: " + feature.getFeatureName());
                 }
                 featureList.addAll(features);
-                adapter.notifyDataSetChanged();
+                //adapter.notifyDataSetChanged();
 
             }
         });
