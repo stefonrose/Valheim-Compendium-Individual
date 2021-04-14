@@ -217,7 +217,7 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 
 	- [x] Set up parse server that will store the Valheim data and be able to GET the data from.
 
-![Milestone 1 Walkthrough](images\milestone1-parse-data.gif)
+![Milestone 1 Walkthrough](milestone1-parse-data.gif)
 
 ### Milestone 2
 
@@ -238,4 +238,4 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 	
 	- Our initial idea was to use a GridView on the bottom half of our page to display the features that we needed to. However, despite looking at 4 different tutorials we could not get it to work. We are currently changing to using a recycler view and hoping that we can change it to give a similar effect to grid view.
 
-![Issues with homepage](images\issues-with-homepage.png)
+![Issues with homepage](issues-with-homepage.png)
