@@ -216,3 +216,26 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 - [x] **Setup Parse Server**
 
 	- [x] Set up parse server that will store the Valheim data and be able to GET the data from.
+
+![](images\milestone1-parse-data.gif)
+
+### Milestone 2
+
+- [x] **Implement the app homepage**
+
+    Implement the hompage so that the user can see an overview of the ggame along with the main game elements when they load the app.
+
+    **Initial Implementation Idea**
+
+    - [ ] GridView to display the different game elements
+
+    **Current Implementation**
+
+    - [x] Proof of concept with hardcoded data
+    - [ ] Using recycler view to display the game elements instead of GridView
+
+	**Issues with Milestone 2**
+	
+	- Our initial idea was to use a GridView on the bottom half of our page to display the features that we needed to. However, despite looking at 4 different tutorials we could not get it to work. We are currently changing to using a recycler view and hoping that we can change it to give a similar effect to grid view.
+
+![](images\issues-with-homepage.png)
