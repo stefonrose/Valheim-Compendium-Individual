@@ -53,6 +53,20 @@ public class MyAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.home_grid_view_items, null);
         }
 
+        ImageView bannerIV;
+        TextView descriptionTV;
+
+        ImageView biomeIV;
+        TextView biomeTV;
+
+        ImageView creatureIV;
+        TextView creatureTV;
+
+        ImageView itemsIV;
+        TextView itemsTV;
+
+
+
 //        TextView feature_nameTV = (TextView) convertView.findViewById(R.id.feature_nameTV);
 //        ImageView featureIV = (ImageView) convertView.findViewById(R.id.featureIV);
 //        feature_nameTV.setText(feature.getFeatureName());

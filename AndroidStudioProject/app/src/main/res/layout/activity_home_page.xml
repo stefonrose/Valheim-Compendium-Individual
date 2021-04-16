@@ -8,16 +8,16 @@
     tools:context=".HomePageActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/bannerIV"
         android:layout_width="match_parent"
         android:layout_height="255dp"
-        tools:srcCompat="@drawable/home_banner" />
+        android:src="@drawable/home_banner" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/descriptionTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/bannerIV"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -25,52 +25,52 @@
         android:textColor="#EDEDED" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/biomeIV"
         android:layout_width="180dp"
         android:layout_height="120dp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/descriptionTV"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        tools:srcCompat="@drawable/biomes" />
+        android:src="@drawable/biomes" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/creatureIV"
         android:layout_width="180dp"
         android:layout_height="120dp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/descriptionTV"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:layout_toEndOf="@+id/imageView15"
-        tools:srcCompat="@drawable/creature_feat" />
+        android:layout_toEndOf="@+id/biomeIV"
+        android:src="@drawable/creature_feat" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/itemsIV"
         android:layout_width="180dp"
         android:layout_height="120dp"
-        android:layout_above="@+id/textView9"
+        android:layout_above="@+id/itemsTV"
         android:layout_alignParentStart="true"
         android:layout_marginStart="11dp"
         android:layout_marginBottom="14dp"
-        tools:srcCompat="@drawable/item_feat" />
+        android:src="@drawable/item_feat" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/mechIV"
         android:layout_width="180dp"
         android:layout_height="120dp"
-        android:layout_above="@+id/textView10"
+        android:layout_above="@+id/mechTV"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
-        tools:srcCompat="@drawable/mechanic_feat" />
+        android:src="@drawable/mechanic_feat" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/biomeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView17"
+        android:layout_above="@+id/itemsIV"
         android:layout_alignParentStart="true"
         android:layout_marginStart="71dp"
         android:layout_marginBottom="9dp"
@@ -78,10 +78,10 @@
         android:textColor="#EDEDED" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/creatureTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView18"
+        android:layout_above="@+id/mechIV"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="12dp"
@@ -89,7 +89,7 @@
         android:textColor="#EDEDED" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/itemsTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -100,7 +100,7 @@
         android:textColor="#EDEDED" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/mechTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
