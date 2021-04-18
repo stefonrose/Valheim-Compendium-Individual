@@ -1,10 +1,16 @@
 package com.theboys.valheimcompendium;
 
-import com.theboys.valheimcompendium.MyAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.parse.FindCallback;
@@ -17,19 +23,29 @@ import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
 
-    GridView simpleList;
-    ArrayList featureList = new ArrayList();
-
+    protected List<Feature> allFeatures;
     public static final String TAG = "HomePageActivity";
-    protected MyAdapter adapter;
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_entry_page);
+        RecyclerView featuresRV = findViewById(R.id.featuresRV);
+        allFeatures = new ArrayList<>();
+
+        // Create the adapter
+        HomeFeatureAdapter featuresAdapter =  new HomeFeatureAdapter(this, allFeatures);
+
+        // Set the adapter on the recycler view
+        featuresRV.setAdapter(featuresAdapter);
+
+        // Set a layout manager on the recycler view
+        featuresRV.setLayoutManager(new LinearLayoutManager(this));
+        queryFeature();
     }
+
+
 
 
     protected void queryFeature() {
@@ -44,8 +60,8 @@ public class HomePageActivity extends AppCompatActivity {
                 for (Feature feature: features) {
                     Log.i(TAG, "Feature: " + feature.getFeatureName());
                 }
-                featureList.addAll(features);
-                //adapter.notifyDataSetChanged();
+                allFeatures.addAll(features);
+                //featuresAdapter.notifyDataSetChanged();
 
             }
         });
