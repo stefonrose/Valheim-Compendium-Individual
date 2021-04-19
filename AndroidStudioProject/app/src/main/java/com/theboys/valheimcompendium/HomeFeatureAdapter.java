@@ -1,18 +1,24 @@
 package com.theboys.valheimcompendium;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcel;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.ViewHolder> {
@@ -60,7 +66,7 @@ public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-
+        RelativeLayout container;
         private ImageView featureIV;
         private TextView feature_nameTV;
 
@@ -70,6 +76,7 @@ public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.
 
             featureIV = itemView.findViewById(R.id.featureIV);
             feature_nameTV = itemView.findViewById(R.id.feature_nameTV);
+            container = itemView.findViewById(R.id.container);
         }
 
         public void bind(Feature feature) {
@@ -79,6 +86,16 @@ public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(featureIV);
             }
+
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, FeaturePageActivity.class);
+                    i.putExtra("feature", Parcels.wrap(feature));
+                    context.startActivity(i);
+                    Toast.makeText(context, feature.getFeatureName(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 }

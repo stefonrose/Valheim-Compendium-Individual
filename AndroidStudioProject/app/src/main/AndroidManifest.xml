@@ -15,8 +15,8 @@
         android:theme="@style/Theme.ValheimCompendium">
 
 
-        <!-- <activity android:name=".EntryPageActivity"></activity>
-        <activity android:name=".FeaturePageActivity" /> -->
+        <activity android:name=".EntryPageActivity"></activity>
+        <activity android:name=".FeaturePageActivity" ></activity>
 
         <activity android:name=".HomePageActivity">
             <intent-filter>
