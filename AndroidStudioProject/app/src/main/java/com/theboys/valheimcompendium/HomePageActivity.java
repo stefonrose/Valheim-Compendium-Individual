@@ -25,24 +25,25 @@ public class HomePageActivity extends AppCompatActivity {
 
     protected List<Feature> allFeatures;
     public static final String TAG = "HomePageActivity";
+    HomeFeatureAdapter featuresAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feature_page);
-//        RecyclerView featuresRV = findViewById(R.id.featuresRV);
-//        allFeatures = new ArrayList<>();
-//
-//        // Create the adapter
-//      HomeFeatureAdapter featuresAdapter =  new HomeFeatureAdapter(this, allFeatures);
-//
-//       // Set the adapter on the recycler view
-//       featuresRV.setAdapter(featuresAdapter);
-//
-//      // Set a layout manager on the recycler view
-//       featuresRV.setLayoutManager(new LinearLayoutManager(this));
-//      queryFeature();
+        setContentView(R.layout.activity_entry_page);
+        RecyclerView featuresRV = findViewById(R.id.featuresRV);
+        allFeatures = new ArrayList<>();
+
+        // Create the adapter
+        featuresAdapter =  new HomeFeatureAdapter(this, allFeatures);
+
+        // Set the adapter on the recycler view
+        featuresRV.setAdapter(featuresAdapter);
+
+        // Set a layout manager on the recycler view
+        featuresRV.setLayoutManager(new LinearLayoutManager(this));
+        queryFeature();
     }
 
 
@@ -61,7 +62,7 @@ public class HomePageActivity extends AppCompatActivity {
                     Log.i(TAG, "Feature: " + feature.getFeatureName());
                 }
                 allFeatures.addAll(features);
-                //featuresAdapter.notifyDataSetChanged();
+                featuresAdapter.notifyDataSetChanged();
 
             }
         });

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,11 +8,30 @@
     android:layout_height="match_parent"
     tools:context=".EntryPageActivity">
 
+    <ImageView
+        android:id="@+id/bannerIV"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/home_banner" />
+
+    <TextView
+        android:id="@+id/descriptionTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bannerIV"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Valheim is a game about exploring a huge fantasy world inspired by Norse mythology and Viking culture. You start your adventure at the relatively peaceful center of Valheim. The further from the center you travel, the more challenging the world becomes. But you will also find more valuable materials that you can use to craft deadlier weapons and sturdier armor. You will also build your own Viking strongholds and outposts all over the world."
+        android:textColor="#802A2A" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/featuresRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp" />
+        android:layout_below="@+id/descriptionTV"
+        android:layout_marginTop="13dp"
+        android:padding="4dp" />
 
-</FrameLayout>
+</RelativeLayout>
