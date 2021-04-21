@@ -9,7 +9,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/action_mechanics"
-        android:icon="@drawable/icon_mechanics"
+        android:icon="@drawable/ic_baseline_settings_24"
         android:title="Mechanics"
         app:showAsAction="always" />
     <item

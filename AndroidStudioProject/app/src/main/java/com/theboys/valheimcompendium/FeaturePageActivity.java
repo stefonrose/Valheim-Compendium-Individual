@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.theboys.valheimcompendium.fragments.BiomeFragment;
+import com.theboys.valheimcompendium.fragments.CreatureFragment;
+import com.theboys.valheimcompendium.fragments.ItemsFragment;
+import com.theboys.valheimcompendium.fragments.MechanicsFragment;
 
 public class FeaturePageActivity extends AppCompatActivity {
 
@@ -28,20 +31,24 @@ public class FeaturePageActivity extends AppCompatActivity {
 
                 Fragment fragment ;
                 switch (menuitem.getItemId()) {
-                    case R.id.action_biomes:
-                        Toast.makeText(getBaseContext(), "Biomes", Toast.LENGTH_SHORT).show();
-                        fragment = new BiomeFragment();
-                        break;
-                    case R.id.action_creatures:
-                        Toast.makeText(FeaturePageActivity.this, "creatures", Toast.LENGTH_SHORT).show();
-                        fragment = new BiomeFragment();
-                        break;
+
                     case R.id.action_mechanics:
                         Toast.makeText(FeaturePageActivity.this, "mechanics", Toast.LENGTH_SHORT).show();
-                        fragment = new BiomeFragment();
+                        fragment = new MechanicsFragment();
                         break;
+
                     case R.id.action_items:
                         Toast.makeText(FeaturePageActivity.this, "items", Toast.LENGTH_SHORT).show();
+                        fragment = new ItemsFragment();
+                        break;
+
+                    case R.id.action_creatures:
+                        Toast.makeText(FeaturePageActivity.this, "creatures", Toast.LENGTH_SHORT).show();
+                        fragment = new CreatureFragment();
+                        break;
+
+                    case R.id.action_biomes:
+                        Toast.makeText(getBaseContext(), "Biomes", Toast.LENGTH_SHORT).show();
                         fragment = new BiomeFragment();
                         break;
 
