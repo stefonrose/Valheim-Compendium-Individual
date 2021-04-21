@@ -261,4 +261,4 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 	
 	- We had an issue with the transition from the home page to the feature page. It doesn't matter what cell we click on, it always takes us to the same fragment.
 
-![Milestone 1 Walkthrough](images/milestone2-feature-fragments.gif)
+![Milestone 3 Walkthrough](images/milestone3-feature-fragments.gif)
