@@ -248,7 +248,6 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 
     **Current Implementation**
 
-    - [x] Proof of concept with hardcoded data
     - [x] Using recycler view to display the game elements instead of GridView
 
 - [x] ** Implement the feature page**
