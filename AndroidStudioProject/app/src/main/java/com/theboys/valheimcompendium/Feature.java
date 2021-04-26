@@ -5,8 +5,11 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
+@Parcel(analyze={Feature.class})
 @ParseClassName("Feature")
 public class Feature extends ParseObject {
 
@@ -14,6 +17,7 @@ public class Feature extends ParseObject {
     public static final String KEY_FEATURE_NAME = "name";
     public static final String KEY_FEATURE_IMAGE = "image";
 
+    public Feature() {}
 
     public String getFeatureName() {
         return getString(KEY_FEATURE_NAME);

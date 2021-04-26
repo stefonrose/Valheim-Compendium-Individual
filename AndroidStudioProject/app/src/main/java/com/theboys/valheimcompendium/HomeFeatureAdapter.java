@@ -93,7 +93,7 @@ public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.
                     Intent i = new Intent(context, FeaturePageActivity.class);
                     i.putExtra("feature", Parcels.wrap(feature));
                     context.startActivity(i);
-                    Toast.makeText(context, feature.getFeatureName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, feature.getFeatureName(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

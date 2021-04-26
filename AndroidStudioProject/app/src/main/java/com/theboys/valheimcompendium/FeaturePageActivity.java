@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -15,14 +16,21 @@ import com.theboys.valheimcompendium.fragments.CreatureFragment;
 import com.theboys.valheimcompendium.fragments.ItemsFragment;
 import com.theboys.valheimcompendium.fragments.MechanicsFragment;
 
+import org.parceler.Parcels;
+
 public class FeaturePageActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView ;
+    private BottomNavigationView bottomNavigationView;
+    public static final String TAG = "FeaturePageActivity";
     final FragmentManager fragmentManager = getSupportFragmentManager();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feature_page);
+
+        Feature feat = Parcels.unwrap(getIntent().getParcelableExtra("feature"));
+        String selected = feat.getFeatureName();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -33,27 +41,18 @@ public class FeaturePageActivity extends AppCompatActivity {
                 switch (menuitem.getItemId()) {
 
                     case R.id.action_mechanics:
-                        Toast.makeText(FeaturePageActivity.this, "mechanics", Toast.LENGTH_SHORT).show();
                         fragment = new MechanicsFragment();
                         break;
 
                     case R.id.action_items:
-                        Toast.makeText(FeaturePageActivity.this, "items", Toast.LENGTH_SHORT).show();
                         fragment = new ItemsFragment();
                         break;
 
                     case R.id.action_creatures:
-                        Toast.makeText(FeaturePageActivity.this, "creatures", Toast.LENGTH_SHORT).show();
                         fragment = new CreatureFragment();
                         break;
 
-                    case R.id.action_biomes:
-                        Toast.makeText(getBaseContext(), "Biomes", Toast.LENGTH_SHORT).show();
-                        fragment = new BiomeFragment();
-                        break;
-
                     default:
-                        Toast.makeText(FeaturePageActivity.this, "Biomes", Toast.LENGTH_SHORT).show();
                         fragment = new BiomeFragment();
                         break;
                 }
@@ -61,9 +60,23 @@ public class FeaturePageActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         // Set default selection
-        bottomNavigationView.setSelectedItemId(R.id.action_biomes);
+        int defaultSelection;
+        switch (selected) {
+            case "Mechanics":
+                defaultSelection = R.id.action_mechanics;
+                break;
+            case "Items":
+                defaultSelection = R.id.action_items;
+                break;
+            case "Creatures":
+                defaultSelection = R.id.action_creatures;
+                break;
+            default:
+                defaultSelection = R.id.action_biomes;
+                break;
+        }
+        bottomNavigationView.setSelectedItemId(defaultSelection);
     }
-
-
 }
