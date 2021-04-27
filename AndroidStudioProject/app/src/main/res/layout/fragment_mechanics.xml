@@ -6,51 +6,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.BiomeFragment">
-
-
-    <TextView
-        android:id="@+id/biome_titleTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="28dp"
-        android:text="Mechanics"
-        android:textSize="36sp"
-        tools:text="Mechanics" />
+    tools:context=".fragments.MechanicFragment">
 
     <ImageView
-        android:id="@+id/biome_imageIV"
-        android:layout_width="186dp"
-        android:layout_height="133dp"
+        android:id="@+id/mechanic_imageIV"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
-        app:srcCompat="@drawable/mechanic_feat" />
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/item_feat" />
 
     <TextView
-        android:id="@+id/biome_overviewTV"
-        android:layout_width="386dp"
+        android:id="@+id/mechanic_overviewTV"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="153dp"
+        android:layout_below="@id/mechanic_imageIV"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:text="Mechanics are the in game systems that dictate how the game functions. Understanding these systems is paramount in order for the player to succeed."
         android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="395dp"
-        android:layout_height="481dp"
+        android:id="@+id/rvMechanics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mechanic_overviewTV"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginStart="0dp" />
 
 </RelativeLayout>

@@ -9,25 +9,15 @@
     tools:context=".fragments.BiomeFragment">
 
 
-    <TextView
-        android:id="@+id/biome_titleTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/biome_imageIV"
-        android:layout_alignEnd="@id/biome_imageIV"
-        android:layout_alignBottom="@id/biome_imageIV"
-        android:text="Biome"
-        android:textSize="36sp"
-        tools:text="Biomes" />
-
     <ImageView
         android:id="@+id/biome_imageIV"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/biome_feat" />
 
     <TextView
@@ -43,6 +33,7 @@
         android:textSize="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBiomes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/biome_overviewTV"

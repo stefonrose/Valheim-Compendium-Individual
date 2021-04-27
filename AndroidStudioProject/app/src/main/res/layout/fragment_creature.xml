@@ -6,49 +6,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.BiomeFragment">
+    tools:context=".fragments.CreatureFragment">
 
-
-    <TextView
-        android:id="@+id/biome_titleTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="18dp"
-        android:text="Creatures"
-        android:textSize="36sp"
-        tools:text="Creatures" />
 
     <ImageView
-        android:id="@+id/biome_imageIV"
-        android:layout_width="186dp"
-        android:layout_height="133dp"
+        android:id="@+id/creature_imageIV"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
-        app:srcCompat="@drawable/creature_feat" />
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/creature_feat" />
 
     <TextView
-        android:id="@+id/biome_overviewTV"
-        android:layout_width="386dp"
+        android:id="@+id/creature_overviewTV"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="153dp"
+        android:layout_below="@id/creature_imageIV"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:text="Creatures consist of the monsters and wild life that inhabit the world of valheim. They are split into 3 different catergories: Aggressive, meaning that they will attack the player once they are in their vicinity, Passive: meaning that they will ignore the player even  if they are attacked, and Boss: these creatures are aggressive by nature however they differ from others in that they must be summoned with some sort of sacrifice"
         android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="408dp"
-        android:layout_height="347dp"
+        android:id="@+id/rvCreatures"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/creature_overviewTV"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginStart="0dp" />
 
 </RelativeLayout>

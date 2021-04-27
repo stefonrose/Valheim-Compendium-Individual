@@ -20,35 +20,33 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
-import com.theboys.valheimcompendium.BiomeFragmentAdapter;
+import com.theboys.valheimcompendium.ItemFragmentAdapter;
 import com.theboys.valheimcompendium.FeaturePageActivity;
 import com.theboys.valheimcompendium.ParseQueries;
 import com.theboys.valheimcompendium.R;
-import com.theboys.valheimcompendium.models.Biome;
-import com.theboys.valheimcompendium.ParseQueries;
 import com.theboys.valheimcompendium.models.Feature;
+import com.theboys.valheimcompendium.models.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class ItemFragment extends Fragment {
 
-public class BiomeFragment extends Fragment {
-
-    public static final String TAG = "BiomeFragment";
-    private RecyclerView rvBiomes;
+    public static final String TAG = "ItemFragment";
+    private RecyclerView rvItems;
     private TextView overviewTV;
     private ImageView imageIV;
-    private BiomeFragmentAdapter adapter;
-    private List<Biome> allBiomes;
+    private ItemFragmentAdapter adapter;
+    private List<Item> allItems;
 
-    public BiomeFragment() {
+    public ItemFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ((FeaturePageActivity) getActivity()).setActionBarTitle("Biomes");
-        return inflater.inflate(R.layout.fragment_biome, container, false);
+        ((FeaturePageActivity) getActivity()).setActionBarTitle("Items");
+        return inflater.inflate(R.layout.fragment_items, container, false);
     }
 
     @Override
@@ -58,15 +56,14 @@ public class BiomeFragment extends Fragment {
         Feature feat = null;
         List<Feature> feats = ParseQueries.queryFeature();
         for(Feature feature: feats) {
-            if (feature.getName().equals("Biomes")) {
+            if (feature.getName().equals("Items")) {
                 feat = feature;
             }
         }
 
-        rvBiomes = view.findViewById(R.id.rvBiomes);
-        overviewTV = view.findViewById(R.id.biome_overviewTV);
-        imageIV = view.findViewById(R.id.biome_imageIV);
-
+        rvItems = view.findViewById(R.id.rvItems);
+        overviewTV = view.findViewById(R.id.item_overviewTV);
+        imageIV = view.findViewById(R.id.item_imageIV);
 
         overviewTV.setText(feat.getOverview());
         ParseFile image = feat.getImage();
@@ -74,32 +71,31 @@ public class BiomeFragment extends Fragment {
             Glide.with(getContext()).load(image.getUrl()).into(imageIV);
         }
 
-        allBiomes = new ArrayList<>();
-        adapter = new BiomeFragmentAdapter(getContext(), allBiomes);
+        allItems = new ArrayList<>();
+        adapter = new ItemFragmentAdapter(getContext(), allItems);
 
-        rvBiomes.setAdapter(adapter);
-        rvBiomes.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvItems.setAdapter(adapter);
+        rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        queryBiomes();
+        queryItems();
     }
 
-    protected void queryBiomes() {
-        ParseQuery<Biome> query = ParseQuery.getQuery(Biome.class);
-        query.findInBackground(new FindCallback<Biome>() {
+    protected void queryItems() {
+        ParseQuery<Item> query = ParseQuery.getQuery(Item.class);
+        query.findInBackground(new FindCallback<Item>() {
             @Override
-            public void done(List<Biome> biomes, ParseException e) {
+            public void done(List<Item> items, ParseException e) {
                 if (e != null) {
-                    Log.e(TAG, "Issue with getting biomes", e);
+                    Log.e(TAG, "Issue with getting items", e);
                     return;
                 }
-                for (Biome biome: biomes) {
-                    Log.i(TAG, "Biome: " + biome.getName());
+                for (Item item: items) {
+                    Log.i(TAG, "Item: " + item.getName());
                 }
-                allBiomes.addAll(biomes);
+                allItems.addAll(items);
                 adapter.notifyDataSetChanged();
 
             }
         });
     }
-
 }

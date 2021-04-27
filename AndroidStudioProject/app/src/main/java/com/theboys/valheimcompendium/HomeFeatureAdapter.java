@@ -2,26 +2,24 @@ package com.theboys.valheimcompendium;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcel;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import com.theboys.valheimcompendium.models.Feature;
 
 import org.parceler.Parcels;
 
 import java.util.List;
-public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.ViewHolder> {
+public class    HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.ViewHolder> {
 
     private Context context;
     private List<Feature> features;
@@ -30,7 +28,6 @@ public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.
     public HomeFeatureAdapter(Context context, List<Feature> features) {
         this.context = context;
         this.features = features;
-
     }
 
 
@@ -81,8 +78,8 @@ public class HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.
 
         public void bind(Feature feature) {
             // Bind the posts data to the view elements
-            feature_nameTV.setText(feature.getFeatureName());
-            ParseFile image = feature.getFeatureImage();
+            feature_nameTV.setText(feature.getName());
+            ParseFile image = feature.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(featureIV);
             }

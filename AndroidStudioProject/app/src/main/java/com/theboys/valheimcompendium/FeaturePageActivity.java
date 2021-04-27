@@ -6,15 +6,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.theboys.valheimcompendium.fragments.BiomeFragment;
 import com.theboys.valheimcompendium.fragments.CreatureFragment;
-import com.theboys.valheimcompendium.fragments.ItemsFragment;
-import com.theboys.valheimcompendium.fragments.MechanicsFragment;
+import com.theboys.valheimcompendium.fragments.ItemFragment;
+import com.theboys.valheimcompendium.fragments.MechanicFragment;
+import com.theboys.valheimcompendium.models.Feature;
 
 import org.parceler.Parcels;
 
@@ -30,7 +30,7 @@ public class FeaturePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feature_page);
 
         Feature feat = Parcels.unwrap(getIntent().getParcelableExtra("feature"));
-        String selected = feat.getFeatureName();
+        String selected = feat.getName();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -41,11 +41,11 @@ public class FeaturePageActivity extends AppCompatActivity {
                 switch (menuitem.getItemId()) {
 
                     case R.id.action_mechanics:
-                        fragment = new MechanicsFragment();
+                        fragment = new MechanicFragment();
                         break;
 
                     case R.id.action_items:
-                        fragment = new ItemsFragment();
+                        fragment = new ItemFragment();
                         break;
 
                     case R.id.action_creatures:
@@ -78,5 +78,27 @@ public class FeaturePageActivity extends AppCompatActivity {
                 break;
         }
         bottomNavigationView.setSelectedItemId(defaultSelection);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.search) {
+
+            return true;
+        } else if (item.getItemId() == R.id.index) {
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

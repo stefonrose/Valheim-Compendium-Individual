@@ -20,35 +20,34 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
-import com.theboys.valheimcompendium.BiomeFragmentAdapter;
+import com.theboys.valheimcompendium.MechanicFragmentAdapter;
 import com.theboys.valheimcompendium.FeaturePageActivity;
 import com.theboys.valheimcompendium.ParseQueries;
 import com.theboys.valheimcompendium.R;
-import com.theboys.valheimcompendium.models.Biome;
-import com.theboys.valheimcompendium.ParseQueries;
+import com.theboys.valheimcompendium.models.Concept;
+import com.theboys.valheimcompendium.models.Creature;
 import com.theboys.valheimcompendium.models.Feature;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class MechanicFragment extends Fragment {
 
-public class BiomeFragment extends Fragment {
-
-    public static final String TAG = "BiomeFragment";
-    private RecyclerView rvBiomes;
+    public static final String TAG = "MechanicFragment";
+    private RecyclerView rvMechanics;
     private TextView overviewTV;
     private ImageView imageIV;
-    private BiomeFragmentAdapter adapter;
-    private List<Biome> allBiomes;
+    private MechanicFragmentAdapter adapter;
+    private List<Concept> allMechanics;
 
-    public BiomeFragment() {
+    public MechanicFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ((FeaturePageActivity) getActivity()).setActionBarTitle("Biomes");
-        return inflater.inflate(R.layout.fragment_biome, container, false);
+        ((FeaturePageActivity) getActivity()).setActionBarTitle("Mechanics");
+        return inflater.inflate(R.layout.fragment_mechanics, container, false);
     }
 
     @Override
@@ -58,15 +57,14 @@ public class BiomeFragment extends Fragment {
         Feature feat = null;
         List<Feature> feats = ParseQueries.queryFeature();
         for(Feature feature: feats) {
-            if (feature.getName().equals("Biomes")) {
+            if (feature.getName().equals("Mechanics")) {
                 feat = feature;
             }
         }
 
-        rvBiomes = view.findViewById(R.id.rvBiomes);
-        overviewTV = view.findViewById(R.id.biome_overviewTV);
-        imageIV = view.findViewById(R.id.biome_imageIV);
-
+        rvMechanics = view.findViewById(R.id.rvMechanics);
+        overviewTV = view.findViewById(R.id.mechanic_overviewTV);
+        imageIV = view.findViewById(R.id.mechanic_imageIV);
 
         overviewTV.setText(feat.getOverview());
         ParseFile image = feat.getImage();
@@ -74,32 +72,31 @@ public class BiomeFragment extends Fragment {
             Glide.with(getContext()).load(image.getUrl()).into(imageIV);
         }
 
-        allBiomes = new ArrayList<>();
-        adapter = new BiomeFragmentAdapter(getContext(), allBiomes);
+        allMechanics = new ArrayList<>();
+        adapter = new MechanicFragmentAdapter(getContext(), allMechanics);
 
-        rvBiomes.setAdapter(adapter);
-        rvBiomes.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvMechanics.setAdapter(adapter);
+        rvMechanics.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        queryBiomes();
+        queryMechanics();
     }
 
-    protected void queryBiomes() {
-        ParseQuery<Biome> query = ParseQuery.getQuery(Biome.class);
-        query.findInBackground(new FindCallback<Biome>() {
+    protected void queryMechanics() {
+        ParseQuery<Concept> query = ParseQuery.getQuery(Concept.class);
+        query.findInBackground(new FindCallback<Concept>() {
             @Override
-            public void done(List<Biome> biomes, ParseException e) {
+            public void done(List<Concept> mechanics, ParseException e) {
                 if (e != null) {
-                    Log.e(TAG, "Issue with getting biomes", e);
+                    Log.e(TAG, "Issue with getting mechanics", e);
                     return;
                 }
-                for (Biome biome: biomes) {
-                    Log.i(TAG, "Biome: " + biome.getName());
+                for (Concept mechanic: mechanics) {
+                    Log.i(TAG, "Mechanic: " + mechanic.getName());
                 }
-                allBiomes.addAll(biomes);
+                allMechanics.addAll(mechanics);
                 adapter.notifyDataSetChanged();
 
             }
         });
     }
-
 }
