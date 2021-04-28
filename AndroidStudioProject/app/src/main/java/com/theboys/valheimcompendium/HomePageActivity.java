@@ -7,16 +7,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.JsonArray;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.theboys.valheimcompendium.adapters.HomeFeatureAdapter;
 import com.theboys.valheimcompendium.models.Feature;
 
+import org.json.JSONArray;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +36,10 @@ public class HomePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_entry_page);
         RecyclerView featuresRV = findViewById(R.id.featuresRV);
         allFeatures = new ArrayList<>();
@@ -61,6 +70,8 @@ public class HomePageActivity extends AppCompatActivity {
 
             Intent i = new Intent(HomePageActivity.this, IndexPageActivity.class);
             startActivity(i);
+            return true;
+        } else if (item.getItemId() == R.id.reddit) {
             return true;
         }
 
