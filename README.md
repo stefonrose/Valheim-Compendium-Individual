@@ -260,4 +260,17 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 	
 	- We had an issue with the transition from the home page to the feature page. It doesn't matter what cell we click on, it always takes us to the same fragment.
 
-![Milestone 3 Walkthrough](images/milestone3.gif)
+![Milestone 3 Walkthrough](images/milestone3-feature-fragments.gif)
+
+### Milestone 4
+
+- [x] Factor out the common parts of the Item, Mechanic, Biome and Creature models into a parent class called **Entry**
+
+- [x] Finish the recycler views in each fragment so that the necessary data is loaded
+
+- [x] Implement the index page
+	- [x] Allow the user to sort A-Z or reversed
+
+- [x] Fix the UI and make it consistent across all pages
+
+![Milestone 4 Walkthrough](images/milestone4.gif)
