@@ -1,5 +1,9 @@
 package com.theboys.valheimcompendium;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
 import android.util.Log;
 
 import java.io.IOException;
@@ -13,9 +17,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 
-public class RedditPageActivity {
+public class RedditPageActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reddit_page);
+    }
 
     static String run(String url) throws IOException {
         JSONArray array = null;
