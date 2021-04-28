@@ -72,6 +72,8 @@ public class HomePageActivity extends AppCompatActivity {
             startActivity(i);
             return true;
         } else if (item.getItemId() == R.id.reddit) {
+            Intent i = new Intent(HomePageActivity.this, RedditPageActivity.class);
+            startActivity(i);
             return true;
         }
 

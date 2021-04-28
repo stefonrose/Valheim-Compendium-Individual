@@ -24,6 +24,15 @@ public class RedditPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reddit_page);
+
+        String redditUrl = "https://www.reddit.com/r/valheim.json";
+
+        try {
+            String response = run(redditUrl);
+            Log.i("Reddit", response);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     static String run(String url) throws IOException {
@@ -35,7 +44,6 @@ public class RedditPageActivity extends AppCompatActivity {
 
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();
-
         }
     }
 }
