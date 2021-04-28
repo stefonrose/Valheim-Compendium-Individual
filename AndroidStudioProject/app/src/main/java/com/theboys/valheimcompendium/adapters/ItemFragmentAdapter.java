@@ -1,4 +1,4 @@
-package com.theboys.valheimcompendium;
+package com.theboys.valheimcompendium.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import com.theboys.valheimcompendium.R;
 import com.theboys.valheimcompendium.models.Item;
 
 import java.util.List;

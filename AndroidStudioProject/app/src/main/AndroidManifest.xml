@@ -13,17 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ValheimCompendium">
-
-
-        <activity android:name=".EntryPageActivity"></activity>
-        <activity android:name=".FeaturePageActivity" ></activity>
-
+        <activity android:name=".SearchPageActivity"></activity>
+        <activity android:name=".IndexPageActivity" />
+        <activity android:name=".EntryPageActivity" />
+        <activity android:name=".FeaturePageActivity" />
         <activity android:name=".HomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

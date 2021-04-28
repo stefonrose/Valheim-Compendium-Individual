@@ -20,12 +20,11 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
-import com.theboys.valheimcompendium.MechanicFragmentAdapter;
+import com.theboys.valheimcompendium.adapters.MechanicFragmentAdapter;
 import com.theboys.valheimcompendium.FeaturePageActivity;
 import com.theboys.valheimcompendium.ParseQueries;
 import com.theboys.valheimcompendium.R;
 import com.theboys.valheimcompendium.models.Concept;
-import com.theboys.valheimcompendium.models.Creature;
 import com.theboys.valheimcompendium.models.Feature;
 
 import java.util.ArrayList;

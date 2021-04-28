@@ -20,7 +20,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
-import com.theboys.valheimcompendium.ItemFragmentAdapter;
+import com.theboys.valheimcompendium.adapters.ItemFragmentAdapter;
 import com.theboys.valheimcompendium.FeaturePageActivity;
 import com.theboys.valheimcompendium.ParseQueries;
 import com.theboys.valheimcompendium.R;

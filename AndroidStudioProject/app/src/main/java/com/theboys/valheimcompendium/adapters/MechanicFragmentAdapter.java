@@ -1,4 +1,4 @@
-package com.theboys.valheimcompendium;
+package com.theboys.valheimcompendium.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,37 +12,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
-import com.theboys.valheimcompendium.models.Creature;
+import com.theboys.valheimcompendium.R;
+import com.theboys.valheimcompendium.models.Concept;
 
 import java.util.List;
 
-public class CreatureFragmentAdapter extends RecyclerView.Adapter<CreatureFragmentAdapter.ViewHolder>{
+public class MechanicFragmentAdapter extends RecyclerView.Adapter<MechanicFragmentAdapter.ViewHolder>{
 
     private Context context;
-    private List<Creature> creatures;
+    private List<Concept> mechanics;
 
 
-    public CreatureFragmentAdapter(Context context, List<Creature> creatures) {
+    public MechanicFragmentAdapter(Context context, List<Concept> mechanics) {
         this.context = context;
-        this.creatures = creatures;
+        this.mechanics = mechanics;
     }
 
     @NonNull
     @Override
-    public CreatureFragmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MechanicFragmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_item_view, parent, false);
-        return new CreatureFragmentAdapter.ViewHolder(view);
+        return new MechanicFragmentAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CreatureFragmentAdapter.ViewHolder holder, int position) {
-        Creature creature = creatures.get(position);
-        holder.bind(creature);
+    public void onBindViewHolder(@NonNull MechanicFragmentAdapter.ViewHolder holder, int position) {
+        Concept mechanic = mechanics.get(position);
+        holder.bind(mechanic);
     }
 
     @Override
     public int getItemCount() {
-        return creatures.size();
+        return mechanics.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -57,14 +58,14 @@ public class CreatureFragmentAdapter extends RecyclerView.Adapter<CreatureFragme
             itemTV = itemView.findViewById(R.id.itemTV);
         }
 
-        public void bind(Creature creature) {
-            itemTV.setText(creature.getName());
-            ParseFile image = creature.getImage();
+        public void bind(Concept mechanic) {
+            itemTV.setText(mechanic.getName());
+            ParseFile image = mechanic.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(itemIV);
             }
         }
 
     }
-    
+
 }

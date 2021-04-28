@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,8 +14,8 @@ import android.view.MenuItem;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.theboys.valheimcompendium.adapters.HomeFeatureAdapter;
 import com.theboys.valheimcompendium.models.Feature;
-import com.theboys.valheimcompendium.models.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,6 @@ public class HomePageActivity extends AppCompatActivity {
         // Set a layout manager on the recycler view
         featuresRV.setLayoutManager(new LinearLayoutManager(this));
         queryFeature();
-        queryItems();
     }
 
     @Override
@@ -59,6 +59,8 @@ public class HomePageActivity extends AppCompatActivity {
             return true;
         } else if (item.getItemId() == R.id.index) {
 
+            Intent i = new Intent(HomePageActivity.this, IndexPageActivity.class);
+            startActivity(i);
             return true;
         }
 
@@ -79,25 +81,6 @@ public class HomePageActivity extends AppCompatActivity {
                 }
                 allFeatures.addAll(features);
                 featuresAdapter.notifyDataSetChanged();
-
-            }
-        });
-    }
-
-    protected void queryItems() {
-        ParseQuery<Item> query = ParseQuery.getQuery(Item.class);
-        query.findInBackground(new FindCallback<Item>() {
-            @Override
-            public void done(List<Item> items, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting items", e);
-                    return;
-                }
-                for (Item item: items) {
-                    Log.i(TAG, "Item: " + item.getName());
-                }
-                //allItems.addAll(items);
-                //featuresAdapter.notifyDataSetChanged();
 
             }
         });

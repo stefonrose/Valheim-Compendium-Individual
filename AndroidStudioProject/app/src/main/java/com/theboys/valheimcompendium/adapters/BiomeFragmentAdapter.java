@@ -1,4 +1,4 @@
-package com.theboys.valheimcompendium;
+package com.theboys.valheimcompendium.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,37 +12,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
-import com.theboys.valheimcompendium.models.Concept;
+import com.theboys.valheimcompendium.R;
+import com.theboys.valheimcompendium.models.Biome;
 
 import java.util.List;
 
-public class MechanicFragmentAdapter extends RecyclerView.Adapter<MechanicFragmentAdapter.ViewHolder>{
+public class BiomeFragmentAdapter extends RecyclerView.Adapter<BiomeFragmentAdapter.ViewHolder>{
 
     private Context context;
-    private List<Concept> mechanics;
+    private List<Biome> biomes;
 
 
-    public MechanicFragmentAdapter(Context context, List<Concept> mechanics) {
+    public BiomeFragmentAdapter(Context context, List<Biome> biomes) {
         this.context = context;
-        this.mechanics = mechanics;
+        this.biomes = biomes;
     }
 
     @NonNull
     @Override
-    public MechanicFragmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BiomeFragmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_item_view, parent, false);
-        return new MechanicFragmentAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MechanicFragmentAdapter.ViewHolder holder, int position) {
-        Concept mechanic = mechanics.get(position);
-        holder.bind(mechanic);
+    public void onBindViewHolder(@NonNull BiomeFragmentAdapter.ViewHolder holder, int position) {
+        Biome biome = biomes.get(position);
+        holder.bind(biome);
     }
 
     @Override
     public int getItemCount() {
-        return mechanics.size();
+        return biomes.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -57,14 +58,13 @@ public class MechanicFragmentAdapter extends RecyclerView.Adapter<MechanicFragme
             itemTV = itemView.findViewById(R.id.itemTV);
         }
 
-        public void bind(Concept mechanic) {
-            itemTV.setText(mechanic.getName());
-            ParseFile image = mechanic.getImage();
+        public void bind(Biome biome) {
+            itemTV.setText(biome.getName());
+            ParseFile image = biome.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(itemIV);
             }
         }
 
     }
-
 }

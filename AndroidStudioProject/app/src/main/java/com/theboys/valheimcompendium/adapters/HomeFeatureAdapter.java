@@ -1,4 +1,4 @@
-package com.theboys.valheimcompendium;
+package com.theboys.valheimcompendium.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,11 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import com.theboys.valheimcompendium.FeaturePageActivity;
+import com.theboys.valheimcompendium.R;
 import com.theboys.valheimcompendium.models.Feature;
 
 import org.parceler.Parcels;
 
 import java.util.List;
+
 public class    HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapter.ViewHolder> {
 
     private Context context;
@@ -29,7 +32,6 @@ public class    HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapt
         this.context = context;
         this.features = features;
     }
-
 
     @NonNull
     @Override
@@ -42,18 +44,6 @@ public class    HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapt
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Feature feature = features.get(position);
         holder.bind(feature);
-    }
-
-    // Clean all elements of the recycler
-    public void clear() {
-        features.clear();
-        notifyDataSetChanged();
-    }
-
-    // Add a list of items -- change to type used
-    public void addAll(List<Feature> list) {
-        features.addAll(list);
-        notifyDataSetChanged();
     }
 
     @Override
@@ -74,6 +64,7 @@ public class    HomeFeatureAdapter extends RecyclerView.Adapter<HomeFeatureAdapt
             featureIV = itemView.findViewById(R.id.featureIV);
             feature_nameTV = itemView.findViewById(R.id.feature_nameTV);
             container = itemView.findViewById(R.id.container);
+
         }
 
         public void bind(Feature feature) {
