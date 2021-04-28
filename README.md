@@ -244,7 +244,7 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 
 - [x] **Implement the app homepage**
 
-    Implement the hompage so that the user can see an overview of the ggame along with the main game elements when they load the app.
+    Implement the homepage so that the user can see an overview of the game along with the main game elements when they load the app.
 
     **Current Implementation**
 
@@ -260,4 +260,4 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 	
 	- We had an issue with the transition from the home page to the feature page. It doesn't matter what cell we click on, it always takes us to the same fragment.
 
-![Milestone 3 Walkthrough](images/milestone3-feature-fragments.gif)
+![Milestone 3 Walkthrough](images/milestone3.gif)
