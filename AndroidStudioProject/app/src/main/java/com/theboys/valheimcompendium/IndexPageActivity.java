@@ -2,6 +2,7 @@ package com.theboys.valheimcompendium;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,27 +45,37 @@ public class IndexPageActivity extends AppCompatActivity {
         rvIndex.setAdapter(indexAdapter);
 
         rvIndex.setLayoutManager(new LinearLayoutManager(this));
-        //queryAll();
+
         allEntries.addAll(ParseQueries.queryEntry());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_index, menu);
+        MenuItem searchItem = menu.findItem(R.id.search);
+
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // inside on query text change method we are
+                // calling a method to filter our recycler view.
+                filter(newText);
+                return false;
+            }
+        });
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i(TAG, "Item: " + item.getItemId());
-        Log.i(TAG, "Item: " + R.id.index_sort);
-        if (item.getItemId() == R.id.index_search) {
-
-            return true;
-        } else if (item.getItemId() == R.id.index_index) {
-
-            return true;
-        } else if (item.getItemId() == R.id.index_sort) {
+        if (item.getItemId() == R.id.index_sort) {
             Toast.makeText(this, "Sort!", Toast.LENGTH_SHORT);
             Collections.reverse(allEntries);
             indexAdapter.notifyDataSetChanged();
@@ -74,66 +85,27 @@ public class IndexPageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    protected void queryAll() {
-        ParseQuery<Biome> biomeQuery = ParseQuery.getQuery(Biome.class);
-        biomeQuery.findInBackground(new FindCallback<Biome>() {
-            @Override
-            public void done(List<Biome> biomes, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting biomes", e);
-                    return;
-                }
-                allEntries.addAll(biomes);
-                indexAdapter.notifyDataSetChanged();
+    private void filter(String text) {
+        // creating a new array list to filter our data.
+        ArrayList<Entry> filteredList = new ArrayList<>();
 
+        // running a for loop to compare elements.
+        for (Entry item : allEntries) {
+            // checking if the entered string matched with any item of our recycler view.
+            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+                // if the item is matched we are
+                // adding it to our filtered list.
+                filteredList.add(item);
             }
-        });
-
-        ParseQuery<Creature> creatureQuery = ParseQuery.getQuery(Creature.class);
-        creatureQuery.findInBackground(new FindCallback<Creature>() {
-            @Override
-            public void done(List<Creature> creatures, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting creatures", e);
-                    return;
-                }
-                allEntries.addAll(creatures);
-                indexAdapter.notifyDataSetChanged();
-
-            }
-        });
-
-        ParseQuery<Item> itemQuery = ParseQuery.getQuery(Item.class);
-        itemQuery.findInBackground(new FindCallback<Item>() {
-            @Override
-            public void done(List<Item> items, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting items", e);
-                    return;
-                }
-                allEntries.addAll(items);
-                indexAdapter.notifyDataSetChanged();
-
-            }
-        });
-
-        ParseQuery<Concept> mechanicQuery = ParseQuery.getQuery(Concept.class);
-        mechanicQuery.findInBackground(new FindCallback<Concept>() {
-            @Override
-            public void done(List<Concept> mechanics, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting mechanics", e);
-                    return;
-                }
-                allEntries.addAll(mechanics);
-                indexAdapter.notifyDataSetChanged();
-
-            }
-        });
-
-        allEntries.sort(new NameSorter());
-        indexAdapter.notifyDataSetChanged();
-
+        }
+        if (filteredList.isEmpty()) {
+            // if no item is added in filtered list we are
+            // displaying a toast message as no data found.
+            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show();
+        } else {
+            // at last we are passing that filtered
+            // list to our adapter class.
+            indexAdapter.filterList(filteredList);
+        }
     }
-
 }

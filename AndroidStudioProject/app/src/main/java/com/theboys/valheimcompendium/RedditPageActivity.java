@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.io.IOException;
 
@@ -19,13 +22,25 @@ import com.google.gson.JsonParser;
 import org.json.JSONArray;
 
 public class RedditPageActivity extends AppCompatActivity {
+    private WebView redditView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reddit_page);
+        redditView = (WebView) findViewById(R.id.redditWebview);
 
-        String redditUrl = "https://www.reddit.com/r/valheim.json";
+        redditView.getSettings().setLoadsImagesAutomatically(true);
+        redditView.getSettings().setJavaScriptEnabled(true);
+        redditView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
+        redditView.setWebViewClient(new WebViewClient());
+
+        //setContentView(redditView);
+
+        String redditUrl = "https://www.reddit.com/r/valheim";
+
+        redditView.loadUrl(redditUrl);
 
         try {
             String response = run(redditUrl);

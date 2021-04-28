@@ -3,17 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/index_search"
+        android:id="@+id/search"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/index_index"
-        android:title="Index" />
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
     <item
         android:id="@+id/index_sort"
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="Sort"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/reddit"
+        android:icon="@drawable/reddit512white"
+        android:title="Reddit"
         app:showAsAction="always" />
 
 </menu>

@@ -16,6 +16,7 @@ import com.theboys.valheimcompendium.R;
 import com.theboys.valheimcompendium.models.Entry;
 import com.theboys.valheimcompendium.models.Feature;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> {
@@ -26,6 +27,11 @@ public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.ViewHolder> 
     public IndexAdapter(Context context, List<Entry> entries) {
         this.context = context;
         this.entries = entries;
+    }
+
+    public void filterList(ArrayList<Entry> filterList) {
+        entries = filterList;
+        notifyDataSetChanged();
     }
 
     @NonNull
