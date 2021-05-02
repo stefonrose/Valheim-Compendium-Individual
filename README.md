@@ -1,10 +1,33 @@
 # Valheim Compendium
 
 ## Table of Contents
-1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+1. [Individual Contribution](#Individual-Contribution)
+2. [Overview](#Overview)
+3. [Product Spec](#Product-Spec)
+4. [Wireframes](#Wireframes)
+5. **[Schema](#Schema)
+
+## Individual Contribution
+- UI Improvements
+	
+
+
+<u>***Before***</u>
+<img src="images/val0-before.png" alt="Screenshot 1" style="zoom:125%;" />
+	
+	
+	
+*<u>**After**</u>*
+![Screenshot 2](images/val1-after.png)
+
+
+
+
+- Index Page Implementation
+	- Query all database tables and sort every item alphabetically
+	- Sort button to reverse the order items are displayed
+	
+	![Walkthrough 1](images/val.gif)
 
 ## Overview
 ### Description
