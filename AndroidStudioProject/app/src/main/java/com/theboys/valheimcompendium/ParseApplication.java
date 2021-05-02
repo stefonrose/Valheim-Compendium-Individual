@@ -13,6 +13,7 @@ public class ParseApplication extends Application {
 
         // Register your Parse models
         ParseObject.registerSubclass(Feature.class);
+        ParseObject.registerSubclass(Item.class);
 
         // set applicationId, and server server based on the values in the back4app settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
