@@ -1,33 +1,11 @@
 # Valheim Compendium
 
 ## Table of Contents
-1. [Individual Contribution](#Individual-Contribution)
-2. [Overview](#Overview)
-3. [Product Spec](#Product-Spec)
-4. [Wireframes](#Wireframes)
-5. **[Schema](#Schema)
-
-## Individual Contribution
-- UI Improvements
-	
-
-
-<u>***Before***</u>
-<img src="images/val0-before.png" alt="Screenshot 1" style="zoom:125%;" />
-	
-	
-	
-*<u>**After**</u>*
-![Screenshot 2](images/val1-after.png)
-
-
-
-
-- Index Page Implementation
-	- Query all database tables and sort every item alphabetically
-	- Sort button to reverse the order items are displayed
-	
-	![Walkthrough 1](images/val.gif)
+1. [Overview](#Overview)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. **[Schema](#Schema)
+5. [Individual Contribution](#Individual-Contribution)
 
 ## Overview
 ### Description
@@ -297,3 +275,27 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 - [x] Fix the UI and make it consistent across all pages
 
 ![Milestone 4 Walkthrough](images/milestone4.gif)
+
+## Individual Contribution
+- UI Improvements
+	
+
+
+<u>***Before***</u>
+<img src="images/val0-before.png" alt="Screenshot 1" style="zoom:125%;" />
+	
+	
+	
+*<u>**After**</u>*
+![Screenshot 2](images/val1-after.png)
+
+
+
+
+- Index Page Implementation
+	- Query all database tables and sort every item alphabetically
+	- Sort button to reverse the order items are displayed
+	
+	![Walkthrough 1](images/val.gif)
+
+
