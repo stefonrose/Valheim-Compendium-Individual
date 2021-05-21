@@ -278,18 +278,15 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 
 ## Individual Contribution
 - UI Improvements
-	
-
 
 <u>***Before***</u>
+
 <img src="images/val0-before.png" alt="Screenshot 1" style="zoom:125%;" />
-	
-	
-	
+
+
 *<u>**After**</u>*
+
 ![Screenshot 2](images/val1-after.png)
-
-
 
 
 - Index Page Implementation
@@ -298,4 +295,6 @@ A companion app for the popular online game Valheim. Valheim is a game with many
 	
 	![Walkthrough 1](images/val.gif)
 
+- Data Models
+	- Created the data models in java for: Entries, Features, Biomes, Bosses, Creatures, Items, and Concepts. All models extended the Entries class because every category of item is considered an entry in the database.
 
